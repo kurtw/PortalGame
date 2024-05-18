@@ -28,9 +28,6 @@ On Windows, I found that **`PortalPlayerController.h`** needed to have `LYRAGAME
 - Set ability tags *Ability.Type.Action.Portal*  
 - Set ability triggers for *Event.PortalA* & *Event.PortalB*
 ## Play
-### Packaged builds
-Download the relevant executable, WIN or macOS then, **start the game > Play Lyra > Start a Game > PortalExperience**.
-### Editor only
 After cloning the plugin and adding it to a project, **open L_TestMap > use PIE**.
 ### Controls
 - **LMB**: spawn portal A
