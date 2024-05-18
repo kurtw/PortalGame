@@ -15,7 +15,7 @@ class APortal;
  * 
  */
 UCLASS()
-class LYRAGAME_API APortalPlayerController : public ALyraPlayerController
+class PORTALGAMERUNTIME_API APortalPlayerController : public ALyraPlayerController
 {
 	GENERATED_BODY()
 

@@ -7,9 +7,6 @@ Clone the plugin and add it to the Game Features directory in a fresh install of
 **ProjectName > Plugins > GameFeatures** \
 \
 It is recommended to clean the build. i.e. In **Rider Build > Clean Solution**.\
-\
-Note about current issue under investigation:\
-On Windows, I found that **`PortalPlayerController.h`** needed to have `LYRAGAME_API` replaced by `PORTALGAMERUNTIME_API` before the project would be able to compile. Otherwise there may be errors related to _inconsistent dll linkage_. This is opposite to what I found when building on macOS. 
   
 <u>Project Settings</u>
 - `Support global clip plane for Planar Reflections = true`. This is not strictly required, but enabling it allows for any surface to be used for the portals. Without it, custom planes and a specific level layout would be required so that the Capture Component can correctly see through the surface.  

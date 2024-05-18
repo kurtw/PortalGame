@@ -52,6 +52,12 @@ APortal::APortal()
 	PortalCaptureComponent->SetupAttachment(RootComponent);
 	PortalCaptureComponent->bCaptureEveryFrame = false; // If false, must update CaptureComponent in Tick()
 	PortalCaptureComponent->bCaptureOnMovement = false;
+	/*
+	 * If false, when a Niagara System in active / visible (i.e. NS_GunPad):
+	 * WIN --> LogRenderer: Display: Recreating Shadow.Virtual.PhysicalPagePool due to size or flag changes. This will also drop and cached pages.
+	 * macOS --> No change to visible flickering. 
+	*/
+	PortalCaptureComponent->bAlwaysPersistRenderingState = true;
 	PortalCaptureComponent->TextureTarget = nullptr;
 	PortalCaptureComponent->bEnableClipPlane = true;
 	PortalCaptureComponent->bUseCustomProjectionMatrix = true;
