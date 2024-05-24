@@ -94,14 +94,4 @@ All other controls are the same as the Elimination experience.
 - `BP_PortalExperience` is used to set all relevant settings and data. This experience is tied to the playlist `DA_PortalPlaylist` so that it can be access through the `LyraFrontEnd`.  
 - `DA_PortalTagRelationships` is added, but unchanged from default for now.
 # Known Limitations and Future Work
-- The portal renders were chosen to not replicate to other clients, so the view can only be seen by the owning client.
-
-- Recursion for the portal render is not yet added, so there is no infinity mirror effect.
-
-- Only players and their weapons can teleport, other objects are not yet supported.
-
-- Ray tracing does not work through portals, so players cannot spawn portals or shoot through existing portals.
-
-- The commented code in `UpdatePortalRenderRotation` renders the portal view in a way that allows the player to rotate the camera or move far enough away from the portal such that they can see under the floor. The current solution is to set `NewLocation = TargetLocation` with `PortalCaptureComponent->FOVAngle = 120.f`, but this opens the door for other issues related to the view from the portal render and view magnification.
-
-- (at least on macOS) The Niagara system used for the `B_WeaponSpawner` flickers when both portals are active. At this time, the system is disabled by setting the render visibility of both `NS_GunPad` and `NS_GunPad_Loading` to false.
+Bugs and Enhancements are outlined here: https://github.com/kurtw/PortalGame/issues
