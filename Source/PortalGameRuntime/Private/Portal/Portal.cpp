@@ -222,7 +222,7 @@ void APortal::TeleportActor(AActor* OtherActor, UPrimitiveComponent* OtherComp)
 void APortal::TeleportPlayer(ALyraCharacter* Character)
 {
 	ConnectedPortal->LastTeleportedActor = Character;
-	Velocity = Character->GetCharacterMovement()->Velocity;
+	SavedVelocity = Character->GetCharacterMovement()->Velocity;
 	Character->SetActorLocation(ConnectedPortal->GetActorLocation(), false, nullptr, ETeleportType::TeleportPhysics);
 	
 	UpdatePlayerVelocity(Character);
@@ -234,9 +234,9 @@ void APortal::UpdatePlayerVelocity(ALyraCharacter* Character)
 {
 	if (SavedVelocity.Length() > 600.f)
 	{
-		FVector ThisXVel;
-		FVector ThisYVel;
-		FVector ThisZVel;
+		FVector ThisXVel = FVector::ZeroVector;
+		FVector ThisYVel = FVector::ZeroVector;
+		FVector ThisZVel = FVector::ZeroVector;
 		UKismetMathLibrary::BreakRotIntoAxes(GetActorRotation(), ThisXVel, ThisYVel, ThisZVel);
 		
 		FRotator RotationInverse = UKismetMathLibrary::NegateRotator(UKismetMathLibrary::MakeRotationFromAxes(ThisXVel*-1.f, ThisYVel*-1.f, ThisZVel));
