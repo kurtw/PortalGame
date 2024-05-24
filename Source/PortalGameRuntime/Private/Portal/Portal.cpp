@@ -66,8 +66,32 @@ APortal::APortal()
 	PortalCaptureComponent->CaptureSource = SCS_SceneColorSceneDepth;
 	PortalCaptureComponent->PostProcessSettings = CaptureSettings;
 
-	ClipModifier = 1.5f;
+	// Initialize
+	InstigatingPawn = nullptr;
 	bIsExitPortal = false;
+	PortalEffectSpecHandle = nullptr;
+	ClipModifier = 1.5f;
+	PortalPlane = nullptr;
+	PortalCollider = nullptr;
+	PortalCaptureComponent = nullptr;
+	PortalRender = nullptr;
+	InitialPortalMaterial = nullptr;
+	PortalMaterial = nullptr;
+	PortalA = nullptr;
+	PortalB = nullptr;
+	OwningController = nullptr;
+	PortalColor = FColor::Red;
+	CurrentPortal  = nullptr;
+	ConnectedPortal = nullptr;
+	NewRenderRotation = FRotator::ZeroRotator;
+	PortalSurface = nullptr;
+	Velocity = FVector::ZeroVector;
+	SavedVelocity = FVector::ZeroVector;
+	FinalVelocity = FVector::ZeroVector;
+	LastTeleportedActor = nullptr;
+	FinalPlayerRotation = FRotator::ZeroRotator;
+	DeltaRotator = FRotator::ZeroRotator;
+	// end Initialize
 }
 
 void APortal::BeginPlay()

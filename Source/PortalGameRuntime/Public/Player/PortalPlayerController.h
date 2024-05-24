@@ -25,7 +25,9 @@ public:
 	TSubclassOf<APortal> PortalClass;
 	
 	UPROPERTY(EditAnywhere)
-	float PortalDistanceModifier = 2500.f;
+	float PortalDistanceModifier;
+
+	APortalPlayerController(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
 	UFUNCTION(BlueprintCallable)
 	APortal* SpawnPortalA(FHitResult HitResult);

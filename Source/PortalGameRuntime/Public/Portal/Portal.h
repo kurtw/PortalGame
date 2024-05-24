@@ -132,7 +132,7 @@ private:
 	TObjectPtr<APortal> ConnectedPortal;
 
 	UPROPERTY(Replicated)
-	FRotator NewRenderRotation = FRotator::ZeroRotator;
+	FRotator NewRenderRotation;
 
 	UPROPERTY()
 	TObjectPtr<AActor> PortalSurface;

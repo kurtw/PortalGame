@@ -6,6 +6,14 @@
 #include "AbilitySystemComponent.h"
 #include "Player/PortalPlayerController.h"
 
+UPortalAbility::UPortalAbility()
+{
+	PortalClass = nullptr;
+	PortalEffectClass = nullptr;
+	PortalA = nullptr;
+	PortalB = nullptr;
+}
+
 void UPortalAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
                                        const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo,
                                        const FGameplayEventData* TriggerEventData)

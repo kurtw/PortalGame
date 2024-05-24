@@ -17,6 +17,10 @@ class PORTALGAMERUNTIME_API UPortalAbility : public ULyraGameplayAbility
 {
 	GENERATED_BODY()
 
+public:
+
+	UPortalAbility();
+
 protected:
 	
 	virtual void ActivateAbility(const FGameplayAbilitySpecHandle Handle,

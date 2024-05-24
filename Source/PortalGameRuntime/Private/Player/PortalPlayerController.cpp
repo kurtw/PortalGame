@@ -7,6 +7,14 @@
 #include "Kismet/KismetSystemLibrary.h"
 #include "Portal/Portal.h"
 
+APortalPlayerController::APortalPlayerController(const FObjectInitializer& ObjectInitializer)
+{
+	PortalClass = nullptr;
+	PortalDistanceModifier = 2500.f;
+	CtrlPortalA = nullptr;
+	CtrlPortalB = nullptr;
+}
+
 void APortalPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
