@@ -62,7 +62,7 @@ APortal::APortal()
 	PortalCaptureComponent->bEnableClipPlane = true;
 	PortalCaptureComponent->bUseCustomProjectionMatrix = true;
 	PortalCaptureComponent->LODDistanceFactor = 3.f;
-	PortalCaptureComponent->FOVAngle = 120.f;
+	// PortalCaptureComponent->FOVAngle = 120.f;
 	PortalCaptureComponent->CaptureSource = SCS_SceneColorSceneDepth;
 	PortalCaptureComponent->PostProcessSettings = CaptureSettings;
 
@@ -114,6 +114,7 @@ void APortal::BeginPlay()
 	SetPortalColor(PortalColor);
 
 	PortalCollider->OnComponentBeginOverlap.AddDynamic(this, &APortal::OnPortalOverlap);
+
 }
 
 void APortal::Tick(float DeltaTime)
@@ -188,7 +189,7 @@ void APortal::UpdatePortalRenderRotation()
 				
 				FQuat RotationQuat = FQuat::FindBetweenNormals(PortalForward, ConnectedForward).GetNormalized();
 				FQuat NewWorldQuat = RotationQuat * this->GetActorQuat().GetNormalized();
-
+				
 				if (GetConnectedPortal()->GetPortalSurface() != nullptr && this->GetPortalSurface() != nullptr)
 				{
 					float ConnectedDeltaRoll = GetConnectedPortal()->GetPortalSurface()->GetActorRotation().Roll - GetConnectedPortal()->PortalCaptureComponent->GetComponentRotation().Roll;
@@ -196,7 +197,7 @@ void APortal::UpdatePortalRenderRotation()
 					if (CurrentDeltaRoll != 0.f || ConnectedDeltaRoll != 0.f)
 					{
 						NewRenderRotation = FRotator(NewWorldQuat.Rotator().Pitch, NewWorldQuat.Rotator().Yaw, 0.f);
-
+				
 					}
 					else
 					{
@@ -211,6 +212,7 @@ void APortal::UpdatePortalRenderRotation()
 				{
 					GetConnectedPortal()->PortalCaptureComponent->CustomProjectionMatrix = OwningController->GetCameraProjectionMatrix();
 				}
+				/// TODO: Maybe not needed? Check in multiplayer first
 				GetConnectedPortal()->PortalCaptureComponent->TextureTarget = this->PortalRender;
 				GetConnectedPortal()->PortalCaptureComponent->CaptureScene();
 			}
