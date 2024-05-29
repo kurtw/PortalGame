@@ -105,10 +105,16 @@ void APortal::BeginPlay()
 	PortalRender->InitAutoFormat(1920, 1080);
 	PortalRender->RenderTargetFormat = ETextureRenderTargetFormat::RTF_RGBA8;
 	
-	ensureMsgf(InitialPortalMaterial, TEXT("Check that InitialPortalMaterial is set in the portal blueprint."));
-	PortalMaterial = UMaterialInstanceDynamic::Create(InitialPortalMaterial, this);
-	PortalMaterial->SetTextureParameterValue(FName("PortalRenderTexture"), PortalRender);
-	PortalPlane->SetMaterial(0, PortalMaterial);
+	if (InitialPortalMaterial)
+	{
+		PortalMaterial = UMaterialInstanceDynamic::Create(InitialPortalMaterial, this);
+		PortalMaterial->SetTextureParameterValue(FName("PortalRenderTexture"), PortalRender);
+		PortalPlane->SetMaterial(0, PortalMaterial);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Type::Error, TEXT("Check that InitialPortalMaterial is set in the portal blueprint."));
+	}
 
 	OwningController = Cast<APortalPlayerController>(GetOwner());
 	SetPortalColor(PortalColor);
