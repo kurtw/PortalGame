@@ -94,5 +94,5 @@ All other controls are the same as the Elimination experience.
 - `BP_PortalExperience` is used to set all relevant settings and data. This experience is tied to the playlist `DA_PortalPlaylist` so that it can be access through the `LyraFrontEnd`.  
 - `DA_PortalTagRelationships` is added, but unchanged from default for now.
 # Known Limitations / Issues
-- The rendered view from each portal isn't perfect. The intedned state shows that the camera can be rotated so that the view will be seen through floors / walls / etc. , so the current solution is to set NewLocation = TargetLocation. See notes in APortal::UpdatePortalRenderRotation().
+- The rendered view from each portal isn't perfect. The intended state shows that the camera can be rotated so that the view will be seen through floors / walls / etc. , so the current solution is to set NewLocation = TargetLocation, which introduced a heavily magnified effect on the rendered portal view. See notes in APortal::UpdatePortalRenderRotation().
 - There is intense Niagara effect flickering on MacOS, so the current solution is to disable rendering for the Niagara system attched to the B_WeaponSpawner and BP_ExperienceList3D. See notes in APortal::APortal().
