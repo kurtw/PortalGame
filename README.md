@@ -97,3 +97,4 @@ All other controls are the same as the Elimination experience.
 # Known Limitations / Issues
 - The rendered view from each portal isn't perfect. The intended state shows that the camera can be rotated so that the view will be seen through floors / walls / etc. , so the current solution is to set `NewLocation = TargetLocation`, which introduced a heavily magnified effect on the rendered portal view. See notes in `APortal::UpdatePortalRenderRotation()`.
 - There is intense Niagara effect flickering on MacOS, so the current solution is to disable rendering for the Niagara system attched to the `B_WeaponSpawner` and `BP_ExperienceList3D`. See notes in `APortal::APortal()`.
+- Portals render from both sides - seen when attaching a portal to an object with shorter length.
